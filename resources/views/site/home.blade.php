@@ -43,16 +43,17 @@
                         <div class="row mix mix_all" style="display: block; opacity: 1;">
                             <div class="col-md-7">
                                 <img
-                                    src="{{ asset('assets/img/land-1.jpeg') }}"
+                                    src="{{ \Storage::url($project->image) }}"
                                     class="img-fluid w-100"
                                     alt="Responsive image"
+                                    style="height: 450px"
                                 />
                             </div>
                             <div class="col-md-5">
                                 <h2 style="margin-bottom: 32px;">
                                     <a class="pointer">{{ $project->title }}</a>
                                 </h2>
-                                <a class="green pointer">{{ $project->type === 'land' ? 'اراضي' : 'شقق' }}</a>
+                                <a class="green pointer">{{ $project->type === 'lands' ? 'اراضي' : 'شقق' }}</a>
                                 <div class="mt-30" style="margin-top: 32px;">
                                     <p>
                                         {{ $project->description }}
