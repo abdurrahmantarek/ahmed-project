@@ -1,0 +1,123 @@
+@charset "ISO-8859-1";
+body, h1, h2, h3, h4, h5, h6{
+	font-family:Cairo,Tahoma,Helvetica,sans-serif;
+}
+
+.form-control {
+	padding: 0rem .75rem;
+	font-size: 0.9rem;
+}
+
+h2.card-title{
+	font-size:20px;
+	color: #ffffff;
+}
+
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.btn-green { background-color: #61a844; color: #FFF !important; }
+
+.card-default>.card-heading {
+	color: #333;
+	background-color: #61a844;
+	border-color: #ddd;
+}
+
+.content {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.avoid-clicks {
+	pointer-events: none;
+}
+
+.process-wizard-primary > .process-wizard-step > .process-wizard-dot, .process-wizard-primary > .process-wizard-step > .progress > .progress-bar {
+	background: #61a844;
+}
+
+.fancy-file-upload.fancy-file-primary>span.button{
+	background: #61a844;
+}
+
+.btn-teal { background-color: #6c6d70; color: #FFF !important; }
+
+.text-green {
+	color: #61a844 !important; }
+	
+section .nav-pills>li>a {
+    letter-spacing: 0px;
+}
+
+.datepicker.dropdown-menu {
+	right: auto;
+    left: auto;
+}
+.mix.row {
+    display: -webkit-flex !important;
+}
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.avoid-clicks{
+	pointer-events: none;
+}
+
+.printReservationTable.table td, .printReservationTable.table th{
+	padding: .50rem;
+	font-size: 13px;
+	width: 25%;
+}
+#printReservationSection{
+	padding: 40px 0;
+	line-height:1;
+	border-bottom: none;
+}
+.printTableHeaders{
+	color: #000000;
+}
+
+.checkbox input{
+	visibility: hidden;
+}
+
+.logoHeader{
+	border-bottom: 0px !important;
+}
+#logoHeaderImg{
+	padding-bottom: 14px;
+}
+#footer>.copyright {
+	padding:10px 0;
+}
+
+.upload-file{
+	color:#61a844;
+}
+
+.image-size{
+	width: 50% !important;
+	height: 90% !important;
+}
+.field-icon {
+	float: left;
+	margin-right: -28px;
+	margin-top: -28px;
+	position: relative;
+	z-index: 2;
+}
+
+.btn-primary:disabled {
+	background-color: #444;
+	border-color: #0275d8;
+}
+
+.btn-primary:disabled {
+    background-color: #61a844;
+    border-color: #61a844;
+}

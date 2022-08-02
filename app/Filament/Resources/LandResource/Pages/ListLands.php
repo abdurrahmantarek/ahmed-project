@@ -36,18 +36,36 @@ class ListLands extends ListRecords
 
     public function importLandsFromExcelData($projectId, $excelData)
     {
-        foreach ($excelData as $land) {
+
+        foreach ($excelData as $k => $land) {
+
+
+            foreach ($land AS $k => $v) {
+
+                $land[trim($k)] = $v;
+            }
+
             Land::create([
                 'project_id' => $projectId,
-                'gov' => $land['gov'],
-                'city' => $land['city'],
-                'region' => $land['region'],
-                'district' => $land['district'],
-                'sub_district' => $land['subdistrict'],
-                'land' => $land['land'],
-                'area' => $land['area'],
-                'excellence' => $land['excellence'],
+                'gov' => $this->getExcelValue($land['gov']),
+                'city' => $this->getExcelValue($land['city']),
+                'region' => $this->getExcelValue($land['region']),
+                'district' => $this->getExcelValue($land['district']),
+                'sub_district' => $this->getExcelValue($land['subdistrict']),
+                'land' => $this->getExcelValue($land['land']),
+                'area' => $this->getExcelValue($land['area']),
+                'excellence' => $this->getExcelValue($land['excellence']),
             ]);
         }
+    }
+
+    public function getExcelValue($excelValue)
+    {
+        if ($excelValue == '-' || empty($excelValue)) {
+
+            return null;
+        }
+
+        return $excelValue;
     }
 }
