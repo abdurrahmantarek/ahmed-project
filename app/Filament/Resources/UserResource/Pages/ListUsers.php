@@ -30,7 +30,7 @@ class ListUsers extends ListRecords
                 FileUpload::make('excel')->required()
             ])->action(function ($data) {
                 $excelData = (new FastExcel)->import(storage_path('app/public/') . $data['excel']);
-                
+
                 $this->importUsersFromExcelData($excelData);
 
             }),
@@ -39,7 +39,7 @@ class ListUsers extends ListRecords
 
     public function importUsersFromExcelData($excelData): void
     {
-        foreach ($excelData as $user) {             
+        foreach ($excelData as $user) {
             User::create([
                 'name' => $user['Name'],
                 'national_id' => $user['National ID'],
@@ -47,5 +47,4 @@ class ListUsers extends ListRecords
             ]);
         }
     }
-    
 }

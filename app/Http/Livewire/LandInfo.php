@@ -26,7 +26,7 @@ class LandInfo extends Component
 
     public function mount()
     {
-        $this->project = Project::first();
+        $this->project = session()->get('project');
 
         $this->govs = $this->getGovs();
     }

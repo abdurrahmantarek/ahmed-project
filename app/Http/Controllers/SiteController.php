@@ -107,7 +107,7 @@ class SiteController extends Controller
 
     public function home()
     {
-        $projects = Project::get()->take(3);
+        $projects = Project::get();
 
         return view('site.home', compact('projects'));
     }
