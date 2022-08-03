@@ -42,7 +42,7 @@
                         />
                         <!-- <div *ngIf="(timer | async)?.active" class="reserve-wrapper"> -->
 
-{{--                        @if(\App\Setting::find(2)->value == 'on')--}}
+                        @if(\App\Models\Setting::where('key', \App\Models\Setting::BOOKINGS)->first()->value)
                         <div class="reserve-wrapper">
                             <a
                                 href="{{ route('rules') }}"
@@ -51,7 +51,7 @@
                                 احجز الآن
                             </a>
                         </div>
-{{--                        @endif--}}
+                        @endif
                     </div>
                 </div>
                 <div class="row m-0">

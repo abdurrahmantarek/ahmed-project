@@ -12,6 +12,10 @@ class PreventRequestsDuringMaintenance extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        '/admin/*',
+        '/admin',
+        'filament/logout',
+        'livewire/message/filament.core.auth.login',
+        'livewire/*'
     ];
 }
