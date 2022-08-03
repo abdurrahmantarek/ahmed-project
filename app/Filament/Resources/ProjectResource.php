@@ -39,7 +39,8 @@ class ProjectResource extends Resource
                 FileUpload::make('image')
                     ->required()
                     ->disk('public')
-                    ->visibility('public')
+                    ->visibility('public'),
+//                FileUpload::make('landsExcel')->dehydrated(false)
 
             ]);
     }
@@ -70,7 +71,7 @@ class ProjectResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\LandsRelationManager::class
         ];
     }
 
