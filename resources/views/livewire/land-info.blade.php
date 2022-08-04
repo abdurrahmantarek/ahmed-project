@@ -20,7 +20,7 @@
 
                     <div class="form-group mt-3">
                         <label for="cities">المدينة *</label>
-                        <select {{ count($cities) == 0 ? 'disabled' : '' }} wire:model="city"  name="unitCityID" class="form-control" id="cities">
+                        <select wire:model="city"  name="unitCityID" class="form-control" id="cities">
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($cities AS $city)
                                 <option value="{{ $city }}">{{ $city }}</option>
@@ -34,7 +34,7 @@
                 <div class="col-6">
                     <div class="form-group mt-3">
                         <label for="regions">المنطقة *</label>
-                        <select {{ count($regions) == 0 ? 'disabled' : '' }} wire:model="region" name="unitRegionID" class="form-control" id="regions">
+                        <select  wire:model="region" name="unitRegionID" class="form-control" id="regions">
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($regions AS $region)
                                 <option value="{{ $region }}">{{ $region }}</option>
@@ -46,7 +46,7 @@
                 <div class="col-6">
                     <div class="form-group mt-3">
                         <label for="districts">الحى *</label>
-                        <select {{ count($districts) == 0 ? 'disabled' : '' }} wire:model="district"  name="unitDistrictID" class="form-control" id="districts">
+                        <select  wire:model="district"  name="unitDistrictID" class="form-control" id="districts">
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($districts AS $district)
                                 <option value="{{ $district }}">{{ $district }}</option>
@@ -61,7 +61,7 @@
 
                     <div class="form-group mt-3">
                         <label for="subDistricts">المجاورة *</label>
-                        <select {{ count($subDistricts) == 0 ? 'disabled' : '' }} wire:model="subDistrict" name="unitSubDistrictID" class="form-control" id="subDistricts">
+                        <select  wire:model="subDistrict" name="unitSubDistrictID" class="form-control" id="subDistricts">
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($subDistricts AS $subDistrict)
                                 <option value="{{ $subDistrict }}">{{ $subDistrict }}</option>
@@ -74,7 +74,7 @@
 
                     <div class="form-group mt-3">
                         <label for="landNo">رقم القطعة *</label>
-                        <select {{ count($lands) == 0 ? 'disabled' : '' }}  wire:model="land" name="landNo" class="form-control" id="landNo">
+                        <select  wire:model="land" name="landNo" class="form-control" id="landNo">
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($lands AS $land)
                                 <option value="{{ $land }}">{{ $land }}</option>
