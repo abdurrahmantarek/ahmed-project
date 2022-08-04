@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'public'),
+    'default' => env('FILESYSTEM_DISK', 'dropbox'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => true,
+        ],
+
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'authorization_token' => env('DROPBOX_TOKEN'),
+            'visibility' => 'public',
         ],
 
         's3' => [
