@@ -48,6 +48,8 @@ return [
             'driver' => 'dropbox',
             'authorization_token' => env('DROPBOX_TOKEN'),
             'visibility' => 'public',
+            'key' => env('DROPBOX_APP_KEY'),
+            'secret' => env('DROPBOX_APP_SECRET'),
         ],
 
         's3' => [
