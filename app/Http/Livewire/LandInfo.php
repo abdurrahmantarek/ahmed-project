@@ -23,6 +23,8 @@ class LandInfo extends Component
     public $lands = [];
     public $area = null;
     public $excellence = null;
+    public bool $disableSubDistricts = false;
+    public bool $disableDistricts = false;
 
     public function mount()
     {
@@ -57,6 +59,12 @@ class LandInfo extends Component
         if (!count($this->districts)) {
 
             $this->getLands();
+            $this->disableDistricts = true;
+
+            if (count($this->getSubDistricts()) == 0) {
+
+                $this->disableSubDistricts = true;
+            }
         }
     }
 
@@ -67,6 +75,7 @@ class LandInfo extends Component
         if (!count($this->subDistricts)) {
 
             $this->getLands();
+            $this->disableSubDistricts = true;
         }
     }
 
@@ -96,5 +105,10 @@ class LandInfo extends Component
     {
         $this->lands = Land::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $this->region)->where('district', $this->district)->where('sub_district', $this->subDistrict)->distinct()->where('land', '!=', null)->pluck('land')->toArray();
 
+    }
+
+    private function getSubDistricts()
+    {
+        return Land::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $this->region)->distinct()->where('sub_district', '!=', null)->pluck('sub_district')->toArray();
     }
 }

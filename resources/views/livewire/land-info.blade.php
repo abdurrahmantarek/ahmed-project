@@ -46,7 +46,7 @@
                 <div class="col-6">
                     <div class="form-group mt-3">
                         <label for="districts">الحى *</label>
-                        <select  wire:model="district"  name="unitDistrictID" class="form-control" id="districts">
+                        <select {{ $disableDistricts ? 'disabled' : '' }}  wire:model="district"  name="unitDistrictID" class="form-control" id="districts">
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($districts AS $district)
                                 <option value="{{ $district }}">{{ $district }}</option>
@@ -61,7 +61,7 @@
 
                     <div class="form-group mt-3">
                         <label for="subDistricts">المجاورة *</label>
-                        <select  wire:model="subDistrict" name="unitSubDistrictID" class="form-control" id="subDistricts">
+                        <select {{ $disableSubDistricts ? 'disabled' : '' }}  wire:model="subDistrict" name="unitSubDistrictID" class="form-control" id="subDistricts">
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($subDistricts AS $subDistrict)
                                 <option value="{{ $subDistrict }}">{{ $subDistrict }}</option>
