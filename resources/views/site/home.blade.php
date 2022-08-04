@@ -42,12 +42,12 @@
                         <br />
                         <div class="row mix mix_all" style="display: block; opacity: 1;">
                             <div class="col-md-7">
-{{--                                <img--}}
-{{--                                    src="{{ \Storage::url($project->image) }}"--}}
-{{--                                    class="img-fluid w-100"--}}
-{{--                                    alt="Responsive image"--}}
-{{--                                    style="height: 450px"--}}
-{{--                                />--}}
+                                <img
+                                    src="{{ \Storage::url($project->image) }}"
+                                    class="img-fluid w-100"
+                                    alt="Responsive image"
+                                    style="height: 450px"
+                                />
                             </div>
                             <div class="col-md-5">
                                 <h2 style="margin-bottom: 32px;">
