@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 //use App\Setting;
 use App\Models\Project;
 use App\Models\User;
+use App\Rules\ReCaptcha;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
@@ -86,6 +87,9 @@ class SiteController extends Controller
     }
     public function loginData(Request $request)
     {
+        $request->validate([
+            'g-recaptcha-response' => ['required', new ReCaptcha]
+        ]);
 
         $user = User::where('national_id', $request->username)->where('password', $request->password);
 

@@ -6,6 +6,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
+                    @if ($errors->has('g-recaptcha-response'))
+                        <div>
+                            <div class="alert alert-danger  alert-dismissible noborder text-center weight-400 nomargin noradius">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                <span>برجاء إختيار علامة التحقق.</span>
+                            </div>
+                        </div>
+                    @endif
                     <div class="box-static box-border-top p-30">
                         <div class="box-title mb-30">
                             <h2 class="fs-20">دخول مستخدم حالي</h2>
@@ -47,6 +55,17 @@
                                     style="margin-left: 5px"
                                 ></span>
                                 <div class="help-block with-errors" style="color: red"></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+{{--                                        @if ($errors->has('g-recaptcha-response'))--}}
+{{--                                            <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>--}}
+{{--                                        @endif--}}
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row">

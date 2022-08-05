@@ -13,6 +13,7 @@
         </div>
     </div>
     @livewireScripts
+    <script src='{{ asset('assets/js/recaptcha.js') }}'></script>
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/timer.js') }}"></script>
 </footer>
