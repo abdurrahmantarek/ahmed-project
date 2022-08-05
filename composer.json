@@ -30,7 +30,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Spatie\\FlysystemDropbox\\": "app/Overrides/"
+            "Filament\\Forms\\Components\\": "app/Overrides/"
         }
     },
     "autoload-dev": {
