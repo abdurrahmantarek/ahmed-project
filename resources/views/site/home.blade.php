@@ -43,7 +43,8 @@
                         <div class="row mix mix_all" style="display: block; opacity: 1;">
                             <div class="col-md-7">
                                 <img
-                                    src="{{ \Storage::url($project->image) }}"
+{{--                                    src="{{ \Storage::url($project->image) }}"--}}
+                                    src="{{ $project->image }}"
                                     class="img-fluid w-100"
                                     alt="Responsive image"
                                     style="height: 450px"
@@ -86,7 +87,7 @@
                                     >
                                     <a
                                         style="margin-right: 20px;"
-                                        href="{{ route('reserve', ['id' => $project->id]) }}"
+                                        href="{{ session()->get('user') ? route('reserve', ['id' => $project->id]) : '#' }}"
                                         class="btn green-bg white btn-lg fs-17 pointer"
                                     >أرغب في التقدم</a
                                     >

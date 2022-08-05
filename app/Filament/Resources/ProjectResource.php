@@ -38,10 +38,9 @@ class ProjectResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(255),
-                FileUpload::make('image')
+                Forms\Components\TextInput::make('image')
                     ->required()
-                    ->disk('public')
-                    ->visibility('public')
+                    ->maxLength(255),
 //                FileUpload::make('landsExcel')->dehydrated(false)
 
             ]);
@@ -57,7 +56,7 @@ class ProjectResource extends Resource
                 ]),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('description')->limit(30),
-                Tables\Columns\ImageColumn::make('image')->disk('public'),
+//                Tables\Columns\ImageColumn::make('image')->disk('public'),
             ])
             ->filters([
                 //
