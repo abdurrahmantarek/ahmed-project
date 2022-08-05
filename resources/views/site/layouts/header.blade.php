@@ -57,7 +57,6 @@
         body { margin: 0; font-family: 'Roboto', sans-serif; }
 
         footer {
-            position: fixed;
             width: 100%;
             bottom: 0;
         }
@@ -142,7 +141,7 @@
                                 <a class="fs-15" href="{{ route('home') }}">الرئيسية</a>
                             </li>
                             <li class="active">
-                                <a href="#projects" class="fs-15" >المشاريع</a>
+                                <a href="{{ route('home') }}#projects" class="fs-15" >المشاريع</a>
                             </li>
                             <li class="active">
                                 <a class="fs-15">الأسئلة الشائعة</a>
