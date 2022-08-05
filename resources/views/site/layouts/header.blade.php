@@ -142,7 +142,7 @@
                                 <a class="fs-15" href="{{ route('home') }}">الرئيسية</a>
                             </li>
                             <li class="active">
-                                <a class="fs-15" >المشاريع</a>
+                                <a src="#projects" class="fs-15" >المشاريع</a>
                             </li>
                             <li class="active">
                                 <a class="fs-15">الأسئلة الشائعة</a>
