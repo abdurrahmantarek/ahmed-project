@@ -1,6 +1,5 @@
 
 @extends('site.layouts.master')
-
 @section('content')
     <section style="padding: 20px">
         <div class="container">
@@ -9,7 +8,7 @@
                     @if ($errors->has('g-recaptcha-response'))
                         <div>
                             <div class="alert alert-danger  alert-dismissible noborder text-center weight-400 nomargin noradius">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                <a href="#" style="width: fit-content;left: 0;right: unset;" class="close" data-dismiss="alert" aria-label="close">×</a>
                                 <span>برجاء إختيار علامة التحقق.</span>
                             </div>
                         </div>
