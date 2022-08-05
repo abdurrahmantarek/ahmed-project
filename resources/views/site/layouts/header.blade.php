@@ -135,7 +135,7 @@
                     <img class="img-fluid" src="{{ asset('assets/img/UrbanCommunitiesAuthority.png') }}" alt="" style="float: left;"  />
                 </a>
                 <div class="clearfix"></div>
-                <div class="row justify-content-start">
+                <div class="row justify-content-end">
                 <div id="timer" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
                         <span id="day"></span>
                         <span id="date"></span>
