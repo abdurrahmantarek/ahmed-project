@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Pages\Actions;
 use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Mockery\Exception;
 use Rap2hpoutre\FastExcel\FastExcel;
@@ -54,7 +55,9 @@ class ListLands extends ListRecords
                 $land[trim($k)] = $v;
             }
 
-            Land::create([
+            $lands = [];
+
+            $lands[] = [
                 'project_id' => $projectId,
                 'gov' => $this->getExcelValue($land['gov']),
                 'city' => $this->getExcelValue($land['city']),
@@ -64,7 +67,10 @@ class ListLands extends ListRecords
                 'land' => $this->getExcelValue($land['land']),
                 'area' => $this->getExcelValue($land['area']),
                 'excellence' => $this->getExcelValue($land['excellence']),
-            ]);
+            ];
+
+
+            Land::insert($lands);
         }
     }
 
