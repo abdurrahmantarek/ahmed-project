@@ -43,7 +43,7 @@ class ListUsers extends ListRecords
             User::create([
                 'name' => $user['Name'],
                 'national_id' => $user['National ID'],
-                'password' => Hash::make($user['Password'])
+                'password' => $user['Password']
             ]);
         }
     }
