@@ -128,11 +128,10 @@
     <div id="header" class="navbar-toggleable-md sticky clearfix">
         <div id="topNav">
             <div class="container">
-                <a class="logo float-left col-lg-5 col-md-6 col-sm-4 col-xs-9">
-                    <img class="img-fluid" src="{{ asset('assets/img/logo.png') }}" alt="" />
+                <a class="logo float-left col-lg-3 col-md-4 col-sm-12 col-xs-12">
                     <img class="img-fluid" src="{{ asset('assets/img/logo.png') }}" alt="" />
                 </a>
-                <a class="logo float-right col-lg-5 col-md-6 col-sm-4 col-xs-9" >
+                <a class="logo float-right col-lg-3 col-md-4 col-sm-12 col-xs-12" >
                     <img class="img-fluid" src="{{ asset('assets/img/UrbanCommunitiesAuthority.png') }}" alt="" style="float: left;"  />
                 </a>
                 <div class="clearfix"></div>
