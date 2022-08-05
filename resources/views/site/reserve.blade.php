@@ -42,7 +42,7 @@
                         />
                         <!-- <div *ngIf="(timer | async)?.active" class="reserve-wrapper"> -->
 
-                        @if(\App\Models\Setting::where('key', \App\Models\Setting::BOOKINGS)->first()->value)
+                        @if(\Illuminate\Support\Carbon::parse(\App\Models\Setting::where('key', \App\Models\Setting::BOOKINGS)->first()->start_date)->lessThanOrEqualTo(\Carbon\Carbon::now()))
                         <div class="reserve-wrapper">
                             <a
                                 href="{{ route('rules') }}"

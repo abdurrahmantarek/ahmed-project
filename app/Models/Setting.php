@@ -12,5 +12,5 @@ class Setting extends Model
     const BOOKINGS = 'Bookings';
     const MAINTENANCE_MODE = 'Maintenance Mode';
 
-    protected $fillable = ['key', 'name'];
+    protected $fillable = ['key', 'name', 'start_date'];
 }

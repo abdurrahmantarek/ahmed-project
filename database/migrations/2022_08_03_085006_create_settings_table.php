@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('key');
             $table->string('value');
+            $table->string('start_date')->nullable();
             $table->timestamps();
         });
     }
