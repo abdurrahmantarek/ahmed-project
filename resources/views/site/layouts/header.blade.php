@@ -5,7 +5,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/green.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap-rtl-merged.min.css') }}" rel="stylesheet">
