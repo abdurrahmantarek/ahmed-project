@@ -134,14 +134,15 @@
                 </a>
                 <a class="logo float-right col-lg-5 col-md-6 col-sm-4 col-xs-9" >
                     <img class="img-fluid" src="{{ asset('assets/img/UrbanCommunitiesAuthority.png') }}" alt="" style="float: left;"  />
-                    <div id="timer">
+                </a>
+                <div class="clearfix"></div>
+                <div class="row justify-content-start">
+                <div id="timer" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
                         <span id="day"></span>
                         <span id="date"></span>
                         <span id="clock"></span>
                     </div>
-
-                </a>
-
+                </div>
                 <div class="navbar float-left submenu-dark">
                     <nav class="nav-main">
                         <ul *ngIf="!auth" id="topMain" class="nav nav-pills nav-main">
