@@ -47,7 +47,7 @@
                                     src="{{ $project->image }}"
                                     class="img-fluid w-100"
                                     alt="Responsive image"
-                                    style="height: 450px"
+                                    style="max-height: 450px"
                                 />
                             </div>
                             <div class="col-md-5">
