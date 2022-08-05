@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Pages\Actions;
 use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Storage;
 use Rap2hpoutre\FastExcel\FastExcel;
 
 class ListLands extends ListRecords
@@ -24,9 +25,9 @@ class ListLands extends ListRecords
                 ->requiresConfirmation()
                 ->form([
                     Select::make('project_id')->relationship('project', 'title')->required(),
-                    FileUpload::make('excel')->required()
+                    FileUpload::make('excel')->disk('local')->visibility('public')->required()
                 ])->action(function ($data) {
-                    $excelData = (new FastExcel)->import(storage_path('app/public/') . $data['excel']);
+                    $excelData = (new FastExcel)->import(public_path('excels/'. $data['excel']));
 
                     $this->importLandsFromExcelData($data['project_id'], $excelData);
 
