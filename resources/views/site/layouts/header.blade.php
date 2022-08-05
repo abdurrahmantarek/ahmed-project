@@ -132,6 +132,7 @@
                 <a class="logo float-right col-lg-5 col-md-6 col-sm-4 col-xs-9" >
                     <img class="img-fluid" src="{{ asset('assets/img/UrbanCommunitiesAuthority.png') }}" alt="" style="float: left;"  />
                     <img class="img-fluid" src="{{ asset('assets/img/UrbanCommunitiesAuthority.png') }}" alt="" style="float: left;" />
+                    <div _ngcontent-lsh-c3="" class="timer"><span _ngcontent-lsh-c3=""></span></div>
                 </a>
 
                 <div class="navbar float-left submenu-dark">
