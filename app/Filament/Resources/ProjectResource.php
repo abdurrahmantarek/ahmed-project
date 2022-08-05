@@ -40,7 +40,7 @@ class ProjectResource extends Resource
                     ->maxLength(255),
                 FileUpload::make('image')
                     ->required()
-                    ->disk('dropbox')
+                    ->disk('public')
                     ->visibility('public')
 //                FileUpload::make('landsExcel')->dehydrated(false)
 
@@ -57,7 +57,7 @@ class ProjectResource extends Resource
                 ]),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('description')->limit(30),
-                Tables\Columns\ImageColumn::make('image')->disk('dropbox'),
+                Tables\Columns\ImageColumn::make('image')->disk('public'),
             ])
             ->filters([
                 //
