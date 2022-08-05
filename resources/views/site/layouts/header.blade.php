@@ -28,6 +28,9 @@
             margin: 0;
             padding: 0;
         }
+        #timer {
+            font-size: 14px;
+        }
         .green {color: #61a844!important;}
         .green-border {border-color: #61a844!important;}
         .white {color: #fff!important;}
@@ -131,8 +134,12 @@
                 </a>
                 <a class="logo float-right col-lg-5 col-md-6 col-sm-4 col-xs-9" >
                     <img class="img-fluid" src="{{ asset('assets/img/UrbanCommunitiesAuthority.png') }}" alt="" style="float: left;"  />
-                    <img class="img-fluid" src="{{ asset('assets/img/UrbanCommunitiesAuthority.png') }}" alt="" style="float: left;" />
-                    <div _ngcontent-lsh-c3="" class="timer"><span _ngcontent-lsh-c3=""></span></div>
+                    <div id="timer">
+                        <span id="day"></span>
+                        <span id="date"></span>
+                        <span id="clock"></span>
+                    </div>
+
                 </a>
 
                 <div class="navbar float-left submenu-dark">
