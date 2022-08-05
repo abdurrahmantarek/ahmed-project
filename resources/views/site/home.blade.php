@@ -59,6 +59,9 @@
                                     <p>
                                         {{ $project->description }}
                                     </p>
+                                    @php
+                                        \Carbon\Carbon::setLocale('ar');
+                                    @endphp
                                     <ul
                                         class="portfolio-detail-list list-unstyled m-0 font-weight-lighter"
                                     >
@@ -69,7 +72,9 @@
                                                 alt=""
                                             />
                                             <span class="lighter">تاريخ فتح باب التقدم:</span>
-                                            <span class="lighter"> 28 يوليو 2020</span>
+                                            <span class="lighter">
+                                                {{ \Carbon\Carbon::parse($project->open_date)->translatedFormat('d M Y') }}
+                                            </span>
                                         </li>
                                         <li>
                                             <img
@@ -78,7 +83,7 @@
                                                 alt=""
                                             />
                                             <span class="lighter">تاريخ نهاية الحجز :</span>
-                                            <span class="lighter"> 10 سبتمبر 2020</span>
+                                            <span class="lighter">{{ \Carbon\Carbon::parse($project->close_date)->translatedFormat('d M Y') }}</span>
                                         </li>
                                     </ul>
                                     <br />
