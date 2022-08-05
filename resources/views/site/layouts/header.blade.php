@@ -57,7 +57,6 @@
         body { margin: 0; font-family: 'Roboto', sans-serif; }
 
         footer {
-            position: fixed;
             width: 100%;
             bottom: 0;
         }
