@@ -14,6 +14,7 @@
     </div>
     @livewireScripts
     <script src="{{ asset('assets/js/polyfills.3f0d8982f3a806dc1357.js') }}"></script>
+    <script src='{{ asset('assets/js/recaptcha.js') }}'></script>
 </footer>
 </body>
 </html>
