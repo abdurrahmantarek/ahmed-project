@@ -41,6 +41,10 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('image')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\DatePicker::make('open_date')
+                    ->required(),
+                Forms\Components\DatePicker::make('close_date')
+                    ->required()
 //                FileUpload::make('landsExcel')->dehydrated(false)
 
             ]);
@@ -55,6 +59,8 @@ class ProjectResource extends Resource
                     'apartments' => 'شقق',
                 ]),
                 Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('open_date'),
+                Tables\Columns\TextColumn::make('close_date'),
                 Tables\Columns\TextColumn::make('description')->limit(30),
 //                Tables\Columns\ImageColumn::make('image')->disk('public'),
             ])
