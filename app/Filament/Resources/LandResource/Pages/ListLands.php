@@ -47,6 +47,8 @@ class ListLands extends ListRecords
     public function importLandsFromExcelData($projectId, $excelData)
     {
 
+        $lands = [];
+
         foreach ($excelData as $k => $land) {
 
 
@@ -55,7 +57,6 @@ class ListLands extends ListRecords
                 $land[trim($k)] = $v;
             }
 
-            $lands = [];
 
             $lands[] = [
                 'project_id' => $projectId,
@@ -70,8 +71,9 @@ class ListLands extends ListRecords
             ];
 
 
-            Land::insert($lands);
         }
+
+        Land::insert($lands);
     }
 
     public function getExcelValue($excelValue)

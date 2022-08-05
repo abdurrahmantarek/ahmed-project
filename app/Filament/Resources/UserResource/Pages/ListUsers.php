@@ -39,12 +39,18 @@ class ListUsers extends ListRecords
 
     public function importUsersFromExcelData($excelData): void
     {
+        $usersList = [];
+
         foreach ($excelData as $user) {
-            User::create([
+
+            $usersList[] = [
                 'name' => $user['Name'],
                 'national_id' => $user['National ID'],
                 'password' => $user['Password']
-            ]);
+            ];
+
         }
+
+        User::insert($usersList);
     }
 }
