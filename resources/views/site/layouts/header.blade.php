@@ -13,7 +13,8 @@
     <link href="{{ asset('assets/css/bootstrap.rtl.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/header-1.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}">
+    <title>نظام حجز تجريبي</title>
     @yield('css')
 
     <style>
