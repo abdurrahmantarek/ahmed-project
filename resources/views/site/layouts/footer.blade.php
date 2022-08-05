@@ -13,8 +13,9 @@
         </div>
     </div>
     @livewireScripts
-    <script src="{{ asset('assets/js/polyfills.3f0d8982f3a806dc1357.js') }}"></script>
     <script src='{{ asset('assets/js/recaptcha.js') }}'></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/timer.js') }}"></script>
 </footer>
 </body>
 </html>
