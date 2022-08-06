@@ -54,7 +54,7 @@
                 <div class="row">
                     <h1>استمارة حجز ارض</h1>
                     <h1>&nbsp;-&nbsp;
-                        <span></span>
+                    <span>{{ session()->get('project')->title }}</span>
                     </h1>
                 </div>
             </div>
