@@ -71,6 +71,7 @@ class ProjectResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()->action(function (Project $record) {
                     $record->lands()->delete();
+                    $record->apartments()->delete();
                     $record->delete();
                 }),
             ])
