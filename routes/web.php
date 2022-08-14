@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([], function () {
-    Route::get('/', [\App\Http\Controllers\SiteController::class, 'home'])->name('home');
+    Route::get('/', [\App\Http\Controllers\SiteController::class, 'redirectToProjects'])->name('redirectToProjects');
+    Route::get('/projects', [\App\Http\Controllers\SiteController::class, 'home'])->name('home');
     Route::get('/login', '\App\Http\Controllers\SiteController@login')->name('login');
     Route::post('/login', '\App\Http\Controllers\SiteController@loginData')->name('login.data');
     Route::get('/logout', '\App\Http\Controllers\SiteController@logout')->name('logout');

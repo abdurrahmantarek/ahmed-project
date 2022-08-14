@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Hash;
 
 class SiteController extends Controller
 {
+    public function redirectToProjects()
+    {
+
+        return redirect()->route('redirectToProjects');
+    }
     protected function updateDotEnv($key, $newValue, $delim = '')
     {
 
