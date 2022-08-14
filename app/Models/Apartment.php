@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Apartment extends Model
 {
     use HasFactory;
 
     protected $guarded = false;
 
-    public function lands()
+    public function project()
     {
-        return $this->hasMany(Land::class);
-    }
-
-    public function apartments()
-    {
-        return $this->hasMany(Apartment::class);
+        return $this->belongsTo(Project::class);
     }
 }

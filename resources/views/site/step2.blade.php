@@ -52,12 +52,12 @@
         </section>
         <div class="container">
 
-            @livewire('land-info')
+            @if(session()->get('project')->type === 'lands')
+                @livewire('land-info')
+            @else
+                @livewire('apartment-info')
+            @endif
 
-            <div class="text-center">
-                <a href="{{ route('step3') }}" class="btn green-bg white nextbtn" >تاكيد </a>
-                <a href="{{ route('step1') }}" class="btn green-bg white nextbtn mr-3">رجوع للتعديل</a>
-            </div>
         </div>
 
     </div>
