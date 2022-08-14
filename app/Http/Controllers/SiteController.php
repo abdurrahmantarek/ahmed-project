@@ -15,7 +15,7 @@ class SiteController extends Controller
     public function redirectToProjects()
     {
 
-        return redirect()->route('redirectToProjects');
+        return redirect()->route('home');
     }
     protected function updateDotEnv($key, $newValue, $delim = '')
     {
