@@ -50,10 +50,12 @@ class LandInfo extends Component
     public function updatedGov($value)
     {
 
+        $this->cities = Land::where('project_id', $this->project->id)->where('gov', $value)->distinct()->pluck('city')->toArray();
+
         //reset other fields 
         $this->region = null;
         $this->regions = [];
-        $this->city = null;
+        $this->city = "";
         $this->district = null;
         $this->districts = [];
         $this->subDistrict = null;
@@ -62,8 +64,9 @@ class LandInfo extends Component
         $this->lands = [];
         $this->area = null;
         $this->excellence = null;
+        $this->disableDistricts = false;
+        $this->disableSubDistricts = false;
 
-        $this->cities = Land::where('project_id', $this->project->id)->where('gov', $value)->distinct()->pluck('city')->toArray();
     }
 
     public function updatedRegion($value)
