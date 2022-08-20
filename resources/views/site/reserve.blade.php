@@ -24,7 +24,8 @@
                                 <a></a>
                             </h2>
                             <ul class="list-inline categories m-0">
-                                <a class="green pointer">{{ $project->type === 'land' ? 'اراضي' : 'شقق' }}</a>
+
+                                <a class="green pointer">{{ $project->type === 'lands' ? 'اراضي' : 'شقق' }}</a>
                             </ul>
                         </div>
 
