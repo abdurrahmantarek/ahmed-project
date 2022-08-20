@@ -29,6 +29,20 @@
             margin: 0;
             padding: 0;
         }
+        #topNav {
+            padding-top: 85px;
+        }
+        .topHeader {
+            width: 100%;
+            position: fixed;
+            min-height: 76px;
+            z-index: 1006;
+            font-size: 24px;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            background: rgb(87 112 100 / 82%);
+        }
         #timer {
             font-size: 14px;
         }
@@ -127,6 +141,7 @@
 <body>
 <div id="wrapper">
     <div id="header" class="navbar-toggleable-md sticky clearfix">
+    <div  class="topHeader">موقع الحجز التجريبي</div>
         <div id="topNav">
             <div class="container">
                 <a class="logo float-left col-lg-3 col-md-4 col-sm-12 col-xs-12">
