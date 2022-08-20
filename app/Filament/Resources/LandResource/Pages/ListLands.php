@@ -78,7 +78,7 @@ class ListLands extends ListRecords
 
     public function getExcelValue($excelValue)
     {
-        if ($excelValue == '-' || empty($excelValue)) {
+        if (empty($excelValue)) {
 
             return null;
         }

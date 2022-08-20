@@ -8,7 +8,7 @@
                 <div class="col-6">
                     <div class="form-group mt-3">
                         <label for="governorates">المحافظة *</label>
-                        <select wire:model="gov" class="form-control" id="governorates" name="unitGovID">
+                        <select wire:model="gov" class="form-control" id="governorates" name="unitGovID" required>
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($govs AS $gov)
                                 <option value="{{ $gov }}">{{ $gov }}</option>

@@ -49,11 +49,37 @@ class LandInfo extends Component
 
     public function updatedGov($value)
     {
+
         $this->cities = Land::where('project_id', $this->project->id)->where('gov', $value)->distinct()->pluck('city')->toArray();
+
+        //reset other fields 
+        $this->region = null;
+        $this->regions = [];
+        $this->city = "";
+        $this->district = null;
+        $this->districts = [];
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->land = null;
+        $this->lands = [];
+        $this->area = null;
+        $this->excellence = null;
+        $this->disableDistricts = false;
+        $this->disableSubDistricts = false;
+
     }
 
     public function updatedRegion($value)
     {
+        $this->district = null;
+        $this->districts = [];
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->land = null;
+        $this->lands = [];
+        $this->area = null;
+        $this->excellence = null;
+
         $this->districts = Land::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $value)->distinct()->where('district', '!=', null)->pluck('district')->toArray();
 
         if (!count($this->districts)) {
@@ -64,23 +90,44 @@ class LandInfo extends Component
             if (count($this->getSubDistricts()) == 0) {
 
                 $this->disableSubDistricts = true;
+            }else {
+
+                $this->subDistricts = $this->getSubDistricts();
             }
         }
     }
 
     public function updatedDistrict($value)
     {
+
+
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->land = null;
+        $this->lands = [];
+        $this->area = null;
+        $this->excellence = null;
+
         $this->subDistricts = Land::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $this->region)->where('district', $value)->distinct()->where('sub_district', '!=', null)->pluck('sub_district')->toArray();
 
         if (!count($this->subDistricts)) {
 
             $this->getLands();
             $this->disableSubDistricts = true;
+        }else {
+
+            $this->disableSubDistricts = false;
+
         }
     }
 
     public function updatedSubDistrict($value)
     {
+
+        $this->land = null;
+        $this->area = null;
+        $this->excellence = null;
+
         $this->lands = Land::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $this->region)->where('district', $this->district)->where('sub_district', $value)->distinct()->where('land', '!=', null)->pluck('land')->toArray();
     }
 
@@ -97,6 +144,17 @@ class LandInfo extends Component
 
     public function updatedCity($value)
     {
+
+        $this->region = null;
+        $this->district = null;
+        $this->districts = [];
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->land = null;
+        $this->lands = [];
+        $this->area = null;
+        $this->excellence = null;
+
         $this->regions = Land::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $value)->distinct()->where('region', '!=', null)->pluck('region')->toArray();
 
     }
