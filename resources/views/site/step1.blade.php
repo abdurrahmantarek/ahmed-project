@@ -52,7 +52,12 @@
         <section class="page-header page-header-xs" id="Reg">
             <div class="container">
                 <div class="row">
-                    <h1>استمارة حجز ارض</h1>
+                    @if(session()->get('project')->type === 'lands')
+                        <h1>استمارة حجز ارض</h1>
+
+                    @else
+                        <h1>استمارة حجز وحدات سكنية</h1>
+                    @endif
                     <h1>&nbsp;-&nbsp;
                     <span>{{ session()->get('project')->title }}</span>
                     </h1>
