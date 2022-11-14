@@ -36,7 +36,7 @@ class ApartmentInfo extends Component
     public $disableUnitType = false;
     public $disableBuilding = false;
     public $disableBuildingUnit = false;
-
+    public $apartments;
 
 
     public function mount()
@@ -59,43 +59,162 @@ class ApartmentInfo extends Component
     public function updatedGov($value)
     {
         $this->cities = Apartment::where('project_id', $this->project->id)->where('gov', $value)->distinct()->pluck('city')->toArray();
+
+        //reset other fields
+        $this->region = null;
+        $this->regions = [];
+        $this->city = "";
+        $this->district = null;
+        $this->districts = [];
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->disableDistricts = false;
+        $this->disableSubDistricts = false;
+        $this->unitType = null;
+        $this->unitTypes = [];
+        $this->building = null;
+        $this->buildings = [];
+        $this->buildingUnits = [];
+        $this->buildingUnit = null;
+
+        $this->floorType = null;
+        $this->floorNum = null;
+        $this->unitSize = null;
+        $this->unitModel = null;
+
     }
 
     public function updatedRegion($value)
     {
+
+
+        //reset other fields
+        $this->district = null;
+        $this->districts = [];
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->disableDistricts = false;
+        $this->disableSubDistricts = false;
+        $this->unitType = null;
+        $this->unitTypes = [];
+        $this->building = null;
+        $this->buildings = [];
+        $this->buildingUnits = [];
+        $this->buildingUnit = null;
+
+        $this->floorType = null;
+        $this->floorNum = null;
+        $this->unitSize = null;
+        $this->unitModel = null;
+
         $this->districts = Apartment::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $value)->distinct()->where('district', '!=', null)->pluck('district')->toArray();
 
         if (!count($this->districts)) {
 
-            $this->disableDistrict = true;
+            $this->getApartments();
+            $this->disableDistricts = true;
 
             if (count($this->getSubDistricts()) == 0) {
 
-                $this->disableSubDistrict = true;
+                $this->disableSubDistricts = true;
+            }else {
+
+                $this->subDistricts = $this->getSubDistricts();
             }
         }
     }
 
     public function updatedDistrict($value)
     {
+
+        //reset other fields
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->disableDistricts = false;
+        $this->disableSubDistricts = false;
+        $this->unitType = null;
+        $this->unitTypes = [];
+        $this->building = null;
+        $this->buildings = [];
+        $this->buildingUnits = [];
+        $this->buildingUnit = null;
+
+        $this->floorType = null;
+        $this->floorNum = null;
+        $this->unitSize = null;
+        $this->unitModel = null;
+
         $this->subDistricts = Apartment::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $this->region)->where('district', $value)->distinct()->where('sub_district', '!=', null)->pluck('sub_district')->toArray();
 
+
         $this->getUnitTypes();
+
         if (!count($this->subDistricts)) {
 
-            $this->disableSubDistrict = true;
+            $this->getApartments();
+            $this->disableSubDistricts = true;
+        }else {
+
+            $this->disableSubDistricts = false;
+
         }
     }
 
     public function updatedSubDistrict($value)
     {
+        //reset other fields
+        $this->unitType = null;
+        $this->unitTypes = [];
+        $this->building = null;
+        $this->buildings = [];
+        $this->buildingUnits = [];
+        $this->buildingUnit = null;
+
+        $this->floorType = null;
+        $this->floorNum = null;
+        $this->unitSize = null;
+        $this->unitModel = null;
+
         $this->unitTypes = Apartment::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $this->city)->where('region', $this->region)->where('district', $this->district)->where('sub_district', $value)->distinct()->where('unit_type', '!=', null)->pluck('unit_type')->toArray();
+
+//        if (!count($this->unitTypes)) {
+//
+//            $this->getApartments();
+//            $this->disableUnitType = true;
+//        }else {
+//
+//            $this->disableUnitType = false;
+//
+//        }
+
     }
 
 
 
     public function updatedCity($value)
     {
+
+        //reset other fields
+        $this->region = null;
+        $this->regions = [];
+        $this->district = null;
+        $this->districts = [];
+        $this->subDistrict = null;
+        $this->subDistricts = [];
+        $this->disableDistricts = false;
+        $this->disableSubDistricts = false;
+        $this->unitType = null;
+        $this->unitTypes = [];
+        $this->building = null;
+        $this->buildings = [];
+        $this->buildingUnits = [];
+        $this->buildingUnit = null;
+
+        $this->floorType = null;
+        $this->floorNum = null;
+        $this->unitSize = null;
+        $this->unitModel = null;
+
         $this->regions = Apartment::where('project_id', $this->project->id)->where('gov', $this->gov)->where('city', $value)->distinct()->where('region', '!=', null)->pluck('region')->toArray();
 
     }
@@ -164,6 +283,15 @@ class ApartmentInfo extends Component
 
     public function updatedUnitType($value)
     {
+        $this->building = null;
+        $this->buildings = [];
+        $this->buildingUnits = [];
+        $this->buildingUnit = null;
+        $this->floorType = null;
+        $this->floorNum = null;
+        $this->unitSize = null;
+        $this->unitModel = null;
+
         $this->buildings = Apartment::where('project_id', $this->project->id)
             ->where('gov', $this->gov)
             ->where('city', $this->city)
@@ -176,6 +304,14 @@ class ApartmentInfo extends Component
 
     public function updatedBuilding($value)
     {
+
+        $this->buildingUnits = [];
+        $this->buildingUnit = null;
+        $this->floorType = null;
+        $this->floorNum = null;
+        $this->unitSize = null;
+        $this->unitModel = null;
+
         $this->buildingUnits = Apartment::where('project_id', $this->project->id)
             ->where('gov', $this->gov)
             ->where('city', $this->city)
@@ -207,12 +343,39 @@ class ApartmentInfo extends Component
             ->where('building_unit', $this->buildingUnit)
             ->first();
 
-        $this->floorType = $record->unit_floor_type;
-        $this->floorNum = $record->floor_num;
-        $this->unitSize = $record->unit_size;
-        $this->unitModel = $record->unit_model;
 
-        session()->put('land', $record);
+        if ($record) {
+            $this->floorType = $record->unit_floor_type;
+            $this->floorNum = $record->floor_num;
+            $this->unitSize = $record->unit_size;
+            $this->unitModel = $record->unit_model;
+
+            session()->put('land', $record);
+
+        }else {
+
+            $this->floorType = null;
+            $this->floorNum = null;
+            $this->unitSize = null;
+            $this->unitModel = null;
+
+
+        }
+
+
+    }
+
+    private function getApartments()
+    {
+        $this->apartments = Apartment::where('project_id', $this->project->id)
+            ->where('gov', $this->gov)
+            ->where('city', $this->city)
+            ->where('region', $this->region)
+            ->where('district', $this->district)
+            ->where('sub_district', $this->subDistrict)
+            ->where('unit_type', $this->unitType)
+            ->where('building', $this->building)
+            ->where('building_unit', $this->buildingUnit)->distinct()->where('building_unit', '!=', null)->pluck('building_unit')->toArray();
 
     }
 
