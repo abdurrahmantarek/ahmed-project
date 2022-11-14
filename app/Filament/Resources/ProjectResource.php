@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+
+use Filament\Forms\Components\TextInput;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
@@ -44,7 +46,9 @@ class ProjectResource extends Resource
                 Forms\Components\DatePicker::make('open_date')
                     ->required(),
                 Forms\Components\DatePicker::make('close_date')
-                    ->required()
+                    ->required(),
+                TextInput::make('domain')
+                    ->url("https://www.google.com")
 //                FileUpload::make('landsExcel')->dehydrated(false)
 
             ]);
