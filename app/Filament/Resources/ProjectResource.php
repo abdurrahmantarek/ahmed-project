@@ -41,7 +41,7 @@ class ProjectResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('image')
-                    ->label(fn () => new HtmlString('<a href="https://www.google.com/" target="_blank">Upload Url Site</a>'))
+                    ->label(fn () => new HtmlString('Image direct Link<a href="https://postimages.org/" style="color:"orange;" target="_blank">Open Upload Site</a>'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('open_date')
