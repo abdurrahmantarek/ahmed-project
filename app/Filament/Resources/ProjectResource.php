@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 
 use Illuminate\Support\HtmlString;
-use Filament\Forms\Components\Checkbox;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
@@ -42,14 +41,12 @@ class ProjectResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('image')
+                    ->label(fn () => new HtmlString('<a href="https://www.google.com/" target="_blank">Upload Url Site</a>'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('open_date')
                     ->required(),
                 Forms\Components\DatePicker::make('close_date')
-                    ->required(),
-                Checkbox::make('accept')
-                    ->label(fn () => new HtmlString('I accept the <a href="" target="_blank">terms and conditions</a>'))
                     ->required()
 //                FileUpload::make('landsExcel')->dehydrated(false)
 
