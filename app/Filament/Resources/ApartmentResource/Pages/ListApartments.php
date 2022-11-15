@@ -19,7 +19,7 @@ class ListApartments extends ListRecords
     protected function getActions(): array
     {
         return [
-            Actions\Button::make('Download PDF')
+            Actions\CreateAction::make('Download PDF')
             ->url("/assets/img/slider.png"),
             Actions\CreateAction::make(),
             Action::make('importApartments')
