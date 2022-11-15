@@ -22,6 +22,8 @@ class ListLands extends ListRecords
     protected function getActions(): array
     {
         return [
+            Action::make('Download Example')
+            ->url("/assets/docs/lands_example.xlsx"),
             Actions\CreateAction::make(),
             Action::make('importLands')
                 ->requiresConfirmation()
