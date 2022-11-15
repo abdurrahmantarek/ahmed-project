@@ -19,8 +19,8 @@ class ListApartments extends ListRecords
     protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make('Download PDF')
-            ->url("/assets/img/slider.png"),
+            Action::make('Download Example')
+            ->url("/assets/docs/apartments_example.xlsx"),
             Actions\CreateAction::make(),
             Action::make('importApartments')
                 ->requiresConfirmation()
