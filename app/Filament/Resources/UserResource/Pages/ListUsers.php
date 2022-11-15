@@ -34,6 +34,8 @@ class ListUsers extends ListRecords
                 $this->importUsersFromExcelData($excelData);
 
             }),
+            Action::make('Download Example')
+            ->url("/assets/docs/user_example.xlsx"),
         ];
     }
 

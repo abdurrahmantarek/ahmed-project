@@ -19,8 +19,6 @@ class ListApartments extends ListRecords
     protected function getActions(): array
     {
         return [
-            Action::make('Download Example')
-            ->url("/assets/docs/apartments_example.xlsx"),
             Actions\CreateAction::make(),
             Action::make('importApartments')
                 ->requiresConfirmation()
@@ -40,6 +38,8 @@ class ListApartments extends ListRecords
 
 
                 }),
+            Action::make('Download Example')
+                ->url("/assets/docs/apartments_example.xlsx"),
         ];
     }
 
