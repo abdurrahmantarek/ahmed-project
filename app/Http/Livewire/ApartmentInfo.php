@@ -31,8 +31,8 @@ class ApartmentInfo extends Component
     public $unitModel = null;
 
 
-    public $disableDistrict = false;
-    public $disableSubDistrict = false;
+    public $disableDistricts = false;
+    public $disableSubDistricts = false;
     public $disableUnitType = false;
     public $disableBuilding = false;
     public $disableBuildingUnit = false;
@@ -117,6 +117,7 @@ class ApartmentInfo extends Component
             if (count($this->getSubDistricts()) == 0) {
 
                 $this->disableSubDistricts = true;
+                $this->getUnitTypes();
             }else {
 
                 $this->subDistricts = $this->getSubDistricts();
@@ -126,7 +127,6 @@ class ApartmentInfo extends Component
 
     public function updatedDistrict($value)
     {
-
         //reset other fields
         $this->subDistrict = null;
         $this->subDistricts = [];
