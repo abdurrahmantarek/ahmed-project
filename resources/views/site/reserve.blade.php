@@ -36,11 +36,68 @@
                         <br />
                     </div>
                     <div class="col-md-5 col-sm-5 pl-0">
-                        <img
-                            src="{{ asset('assets/img/reserve-details0.png') }}"
-                            class="w-100"
-                            alt=""
-                        />
+
+                        <div class="details">
+                            <h2>تفاصيل المشروع</h2>
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-between">
+                                    <div class="title col-7 d-flex">
+                                        <span class="icon">
+                                            <img src="{{ asset('assets/img/date.svg') }}" alt="">
+                                        </span>
+                                        <span>تاريخ فتح التقدم:</span>
+                                    </div>
+                                    <div class="value col-5">
+                                        04 ديسمبر 2022
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-between">
+                                    <div class="title col-7 d-flex">
+                                        <span class="icon">
+                                            <img src="{{ asset('assets/img/date.svg') }}"  alt="">
+                                        </span>
+                                        <span>تاريخ آخر موعد لاستخراج رقم الإستمارة وسداد جدية الحجز :</span>
+                                    </div>
+                                    <div class="value col-5">
+                                        15 ديسمبر 2022
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-between">
+                                    <div class="title col-7 d-flex">
+                                        <span class="icon">
+                                            <img src="{{ asset('assets/img/date.svg') }}"  alt="">
+                                        </span>
+                                        <span>تاريخ بداية حجز الاراضى :</span>
+                                    </div>
+                                    <div class="value col-5">
+                                        25 ديسمبر 2022 10:00 ص
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-between">
+                                    <div class="title col-7 d-flex">
+                                        <span class="icon">
+                                            <img src="{{ asset('assets/img/date.svg') }}"  alt="">
+                                        </span>
+                                        <span>تاريخ نهاية حجز الاراضى :</span>
+                                    </div>
+                                    <div class="value col-5">
+                                        25 ديسمبر 2022
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-between">
+                                    <div class="title col-7 d-flex">
+                                        <span class="icon">
+                                            <img src="{{ asset('assets/img/hourglass.svg') }}"  alt="">
+                                        </span>
+                                        <span>الأراضي المتاحة الآن:</span>
+                                    </div>
+                                    <div class="value col-5">
+                                        709
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         <!-- <div *ngIf="(timer | async)?.active" class="reserve-wrapper"> -->
 
                         @if(\Illuminate\Support\Carbon::parse(\App\Models\Setting::where('key', \App\Models\Setting::BOOKINGS)->first()->start_date)->lessThanOrEqualTo(\Carbon\Carbon::now()))

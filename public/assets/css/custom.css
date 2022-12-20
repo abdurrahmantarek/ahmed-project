@@ -47,7 +47,7 @@ h2.card-title{
 
 .text-green {
 	color: #61a844 !important; }
-	
+
 section .nav-pills>li>a {
     letter-spacing: 0px;
 }
@@ -120,4 +120,38 @@ section .nav-pills>li>a {
 .btn-primary:disabled {
     background-color: #61a844;
     border-color: #61a844;
+}
+.details {
+    border-bottom: none;
+    padding: 20px;
+    border: rgba(0, 0, 0, 0.1) 1px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #666666;
+}
+.details h2 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    font-size: 16px;
+}
+.details .row {
+    font-size: 14px;
+    padding: 20px;
+}
+.details .row .col-12{
+    padding: 0;
+}
+.details .row .col-7{
+    padding-right: 0;
+}
+.details .row .col-5{
+    padding-left: 0;
+}
+.details .row .col-12 {
+    padding-bottom: 4px;
+}
+.details .row .icon {
+    margin-left: 20px;
 }
