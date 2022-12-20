@@ -1,7 +1,7 @@
 <div>
 
     <section class="stepB">
-        <h4 class="green-bg white py-3 pl-2"> بيانات الارض</h4>
+        <h4 class="green-bg white py-3 pl-2"> بيانات الوحدة</h4>
         <div class="row mt-3 mx-0">
 
             <div class="col-12 row">

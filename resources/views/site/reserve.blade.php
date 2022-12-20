@@ -84,7 +84,7 @@
                                         25 ديسمبر 2022
                                     </div>
                                 </div>
-                                <div class="col-12 d-flex justify-content-between">
+                                <div class={{ $project->type === 'lands' ? 'col-12 d-flex justify-content-between' : 'col-12 d-none justify-content-between'}}>
                                     <div class="title col-7 d-flex">
                                         <span class="icon">
                                             <img src="{{ asset('assets/img/hourglass.svg') }}"  alt="">
