@@ -32,17 +32,3 @@ Route::group([], function () {
 
 Route::get('/open', '\App\Http\Controllers\SiteController@openWebsite')->name('open');
 Route::view('/control', 'site.buttons');
-
-
-
-Route::get('db-size', function () {
-
-    $result = DB::select(DB::raw('SELECT table_name AS "Table",
-                ((data_length + index_length) / 1024) AS "Size"
-                FROM information_schema.TABLES
-                WHERE table_schema ="'.'laraveldemo'. '"
-                ORDER BY (data_length + index_length) DESC'));
-    $size = array_sum(array_column($result, 'Size'));
-    $db_size = number_format((float)$size, 2, '.', '');
-    dd($db_size);
-});
