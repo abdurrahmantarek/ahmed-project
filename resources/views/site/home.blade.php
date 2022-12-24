@@ -83,7 +83,7 @@
                                                 alt=""
                                             />
                                             <span class="lighter">تاريخ نهاية الحجز :</span>
-                                            <span class="lighter">{{ \Carbon\Carbon::parse($project->close_date)->translatedFormat('d M Y') }}</span>
+                                            <span class="lighter">{{ \Carbon\Carbon::parse($project->open_registration_date)->translatedFormat('d M Y') }}</span>
                                         </li>
                                     </ul>
                                     <br />

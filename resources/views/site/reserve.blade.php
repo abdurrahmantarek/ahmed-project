@@ -85,7 +85,7 @@
                                         <span>تاريخ نهاية حجز الاراضى :</span>
                                     </div>
                                     <div class="value col-5">
-                                        {{ \Carbon\Carbon::parse($project->close_date)->translatedFormat('d M Y') }}
+                                        {{ \Carbon\Carbon::parse($project->open_registration_date)->translatedFormat('d M Y') }}
                                     </div>
                                 </div>
                                 @if(session()->get('project')->type === 'lands')
@@ -95,6 +95,18 @@
                                                 <img src="{{ asset('assets/img/hourglass.svg') }}"  alt="">
                                             </span>
                                             <span>الأراضي المتاحة الآن:</span>
+                                        </div>
+                                        <div class="value col-5">
+                                            {{ $project->available_lands }}
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <div class="title col-7 d-flex">
+                                            <span class="icon">
+                                                <img src="{{ asset('assets/img/hourglass.svg') }}"  alt="">
+                                            </span>
+                                            <span>الوحدات المتاحة الآن:</span>
                                         </div>
                                         <div class="value col-5">
                                             {{ $project->available_lands }}

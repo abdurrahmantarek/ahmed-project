@@ -57,6 +57,10 @@ class ProjectResource extends Resource
                     ->required()->hidden(function (Closure $get) {
                         return $get('type') != 'lands';
                     })->label('الاراضي المتاحة الآن'),
+                Forms\Components\TextInput::make('available_lands')
+                    ->required()->hidden(function (Closure $get) {
+                        return $get('type') == 'lands';
+                    })->label('الوحدات المتاحة الآن'),
                 Forms\Components\DateTimePicker::make('sorting_date')
                     ->required()->label('الترتيب بالتاريخ')->hint('التاريخ الاقل بيظهر الاول'),
                 Forms\Components\Textarea::make('policy')
