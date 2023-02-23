@@ -141,7 +141,7 @@
 <body>
 <div id="wrapper">
     <div id="header" class="navbar-toggleable-md sticky clearfix">
-    <div  class="topHeader">موقع الحجز التجريبي</div>
+{{--    <div  class="topHeader">موقع الحجز التجريبي</div>--}}
         <div id="topNav">
             <div class="container">
                 <a class="logo float-left col-lg-3 col-md-4 col-sm-12 col-xs-12">

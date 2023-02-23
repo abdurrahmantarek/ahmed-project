@@ -92,9 +92,9 @@ class SiteController extends Controller
     }
     public function loginData(Request $request)
     {
-        $request->validate([
-            'g-recaptcha-response' => ['required', new ReCaptcha]
-        ]);
+//        $request->validate([
+//            'g-recaptcha-response' => ['required', new ReCaptcha]
+//        ]);
 
         $user = User::where('national_id', $request->username)->where('password', $request->password);
 
