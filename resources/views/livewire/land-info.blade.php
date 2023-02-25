@@ -74,7 +74,7 @@
 
                     <div class="form-group mt-3">
                         <label for="landNo">رقم القطعة *</label>
-                        <select  wire:model="land" name="landNo" class="form-control" id="landNo" required>
+                        <select  wire:model="land" name="landNo" class="form-control" id="landNo" >
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($lands AS $land)
                                 <option value="{{ $land }}">{{ $land }}</option>

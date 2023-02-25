@@ -175,7 +175,7 @@
     </section>
 
     <div class="text-center">
-        <a href="{{ $floorType ? route('step3') : '#' }}" class="btn green-bg white nextbtn" >تاكيد </a>
+        <a href="{{ $floorType ? route('step3') : 'JavaScript:void(0);' }}" class="btn green-bg white nextbtn" >تاكيد </a>
         <a href="{{ route('step1') }}" class="btn green-bg white nextbtn mr-3">رجوع للتعديل</a>
     </div>
 </div>
