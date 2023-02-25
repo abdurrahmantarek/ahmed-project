@@ -118,7 +118,7 @@
     </section>
 
     <div class="text-center">
-        <a href="{{ $area ? route('step3') : '#' }}" class="btn green-bg white nextbtn" >تاكيد </a>
+        <a href="{{ $area ? route('step3') : '' }}" class="btn green-bg white nextbtn" >تاكيد </a>
         <a href="{{ route('step1') }}" class="btn green-bg white nextbtn mr-3">رجوع للتعديل</a>
     </div>
 
