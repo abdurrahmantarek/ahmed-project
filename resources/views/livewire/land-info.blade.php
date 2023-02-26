@@ -14,6 +14,7 @@
                                 <option value="{{ $gov }}">{{ $gov }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المحافظة</div>
                     </div>
                 </div>
                 <div class="col-6">
@@ -26,6 +27,7 @@
                                 <option value="{{ $city }}">{{ $city }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المدينة</div>
                     </div>
                 </div>
             </div>
@@ -40,6 +42,7 @@
                                 <option value="{{ $region }}">{{ $region }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المنطقة</div>
                     </div>
 
                 </div>
@@ -52,6 +55,7 @@
                                 <option value="{{ $district }}">{{ $district }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار الحي</div>
                     </div>
                 </div>
             </div>
@@ -67,6 +71,7 @@
                                 <option value="{{ $subDistrict }}">{{ $subDistrict }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المجاورة</div>
                     </div>
 
                 </div>
@@ -80,6 +85,7 @@
                                 <option value="{{ $land }}">{{ $land }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار قطعة الارض</div>
                     </div>
 
                 </div>
@@ -118,8 +124,27 @@
     </section>
 
     <div class="text-center">
+        <button onclick="checkSelect(id)" class="btn green-bg white nextbtn">تاكيد</button>
         <a href="{{ $area ? route('step3') : 'JavaScript:void(0);' }}" class="btn green-bg white nextbtn" >تاكيد </a>
         <a href="{{ route('step1') }}" class="btn green-bg white nextbtn mr-3">رجوع للتعديل</a>
     </div>
 
 </div>
+
+<script>
+      function checkSelect(id) {
+
+        let selectIdAr = ["governorates","cities","regions","districts","subDistricts","landNo",]
+        for(i=0; i > selectIdAr.length; i++){
+            var selectElement = document.getElementById(selectIdAr[i]);
+            var selected = selectElement[0];
+            if (selectedValue) {
+                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display;block;"
+            } else {
+                // option selected, do something
+                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display;none;"
+            }
+        }
+
+      }
+    </script>
