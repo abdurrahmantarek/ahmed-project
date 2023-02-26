@@ -14,7 +14,7 @@
                                 <option value="{{ $gov }}">{{ $gov }}</option>
                             @endforeach
                         </select>
-                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المحافظة</div>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار المحافظة</div>
                     </div>
                 </div>
                 <div class="col-6">
@@ -27,7 +27,7 @@
                                 <option value="{{ $city }}">{{ $city }}</option>
                             @endforeach
                         </select>
-                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المدينة</div>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار المدينة</div>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                                 <option value="{{ $region }}">{{ $region }}</option>
                             @endforeach
                         </select>
-                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المنطقة</div>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار المنطقة</div>
                     </div>
 
                 </div>
@@ -55,7 +55,7 @@
                                 <option value="{{ $district }}">{{ $district }}</option>
                             @endforeach
                         </select>
-                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار الحي</div>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار الحي</div>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                                 <option value="{{ $subDistrict }}">{{ $subDistrict }}</option>
                             @endforeach
                         </select>
-                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار المجاورة</div>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a;display:none;" data-darkreader-inline-color="">برجاء اختيار المجاورة</div>
                     </div>
 
                 </div>
@@ -85,7 +85,7 @@
                                 <option value="{{ $land }}">{{ $land }}</option>
                             @endforeach
                         </select>
-                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display;none;" data-darkreader-inline-color="">برجاء اختيار قطعة الارض</div>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار قطعة الارض</div>
                     </div>
 
                 </div>
@@ -139,10 +139,10 @@
             var selectElement = document.getElementById(selectIdAr[i]);
             var selected = selectElement[0];
             if (selectedValue) {
-                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display;block;"
+                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display:block;"
             } else {
                 // option selected, do something
-                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display;none;"
+                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display:none;"
             }
         }
 
