@@ -133,8 +133,7 @@
 
 <script>
     function checkSelect() {
-        let step2 = {{ route('step3') }}
-        console.log(step2)
+
         let selectIdAr = ["governorates","cities","regions","districts","subDistricts","landNo"]
         for (let i = 0; i < selectIdAr.length; i++) {
             let selectElement = document.getElementById(selectIdAr[i]);
@@ -146,6 +145,11 @@
                 selectElement.nextElementSibling.style.color = "red";
                 selectElement.nextElementSibling.style.display = "none";
             }
+        }
+        let LastSelect = document.getElementById("landNo");
+        let selectedValue = selectElement.options[0].selected;
+        if(!selectedValue){
+            window.location.href = "{{ route('step3') }}"
         }
     }
 </script>
