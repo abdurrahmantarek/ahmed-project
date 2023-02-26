@@ -132,19 +132,20 @@
 </div>
 
 <script>
-      function checkSelect() {
-
-        let selectIdAr = ["governorates","cities","regions","districts","subDistricts","landNo",]
-        for(i=0; i > selectIdAr.length; i++){
-            var selectElement = document.getElementById(selectIdAr[i]);
-            var selected = selectElement[0];
+    function checkSelect() {
+        let step2 = {{ route('step3') }}
+        console.log(step2)
+        let selectIdAr = ["governorates","cities","regions","districts","subDistricts","landNo"]
+        for (let i = 0; i < selectIdAr.length; i++) {
+            let selectElement = document.getElementById(selectIdAr[i]);
+            let selectedValue = selectElement.options[0].selected;
             if (selectedValue) {
-                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display:block;"
+                selectElement.nextElementSibling.style.color = "red";
+                selectElement.nextElementSibling.style.display = "block";
             } else {
-                // option selected, do something
-                selectElement.nextElementSibling.style = "color: red; --darkreader-inline-color:#ff1a1a; display:none;"
+                selectElement.nextElementSibling.style.color = "red";
+                selectElement.nextElementSibling.style.display = "none";
             }
         }
-
-      }
-    </script>
+    }
+</script>
