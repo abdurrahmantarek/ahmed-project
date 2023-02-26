@@ -124,7 +124,7 @@
     </section>
 
     <div class="text-center">
-        <button onclick="checkSelect(id)" class="btn green-bg white nextbtn">تاكيد</button>
+        <button onclick="checkSelect()" class="btn green-bg white nextbtn">تاكيد</button>
         <a href="{{ $area ? route('step3') : 'JavaScript:void(0);' }}" class="btn green-bg white nextbtn" >تاكيد </a>
         <a href="{{ route('step1') }}" class="btn green-bg white nextbtn mr-3">رجوع للتعديل</a>
     </div>
@@ -132,7 +132,7 @@
 </div>
 
 <script>
-      function checkSelect(id) {
+      function checkSelect() {
 
         let selectIdAr = ["governorates","cities","regions","districts","subDistricts","landNo",]
         for(i=0; i > selectIdAr.length; i++){
