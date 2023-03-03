@@ -183,7 +183,8 @@
     </section>
 
     <div class="text-center">
-        <a href="{{ $floorType ? route('step3') : 'JavaScript:void(0);' }}" class="btn green-bg white nextbtn" >تاكيد </a>
+    <button onclick="checkSelect()" style="margin-bottom: 110px;margin-top: 20px;cursor: pointer;padding: 6px 25px;" class="btn green-bg white nextbtn">تاكيد</button>
+        <!-- <a href="{{ $floorType ? route('step3') : 'JavaScript:void(0);' }}" class="btn green-bg white nextbtn" >تاكيد </a> -->
         <a href="{{ route('step1') }}" class="btn green-bg white nextbtn mr-3">رجوع للتعديل</a>
     </div>
 </div>
@@ -203,7 +204,7 @@
                 selectElement.nextElementSibling.style.display = "none";
             }
         }
-        let LastSelect = document.getElementById("landNo");
+        let LastSelect = document.getElementById("buildingUnits");
         let selectedValue = LastSelect.options[0].selected;
         if(!selectedValue){
             window.location.href = "{{ route('step3') }}"
