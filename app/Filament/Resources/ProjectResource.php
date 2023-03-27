@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 
+use Closure;
 use Illuminate\Support\HtmlString;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
@@ -33,7 +34,7 @@ class ProjectResource extends Resource
                     ->options([
                         'lands' => 'اراضي',
                         'apartments' => 'شقق',
-                    ])->required(),
+                    ])->required()->reactive(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
@@ -45,9 +46,31 @@ class ProjectResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('open_date')
-                    ->required(),
+                    ->required()->label('تاريخ فتح التقدم'),
+                Forms\Components\DatePicker::make('last_date_for_filling_the_form')
+                    ->required()->label('تاريخ آخر موعد لاستخراج رقم الإستمارة وسداد جدية الحجز'),
                 Forms\Components\DatePicker::make('close_date')
+                    ->required()->label('تاريخ بداية حجز الاراضى'),
+                Forms\Components\DatePicker::make('open_registration_date')
+                    ->required()->label('تاريخ نهاية حجز الاراضى'),
+                Forms\Components\TextInput::make('available_lands')
+                    ->required()->hidden(function (Closure $get) {
+                        return $get('type') != 'lands';
+                    })->label('الاراضي المتاحة الآن'),
+                Forms\Components\TextInput::make('available_lands')
+                    ->required()->hidden(function (Closure $get) {
+                        return $get('type') == 'lands';
+                    })->label('الوحدات المتاحة الآن'),
+                Forms\Components\DateTimePicker::make('sorting_date')
+                    ->required()->label('الترتيب بالتاريخ')->hint('التاريخ الاقل بيظهر الاول'),
+                Forms\Components\Textarea::make('policy')
+                    ->required()->label('الشروط والاحكام'),
+                Forms\Components\TextInput::make('warning')
+                    ->required()->label('تنوية'),
+                Forms\Components\TextInput::make('warning_image')
+                    ->label(fn () => new HtmlString('Warning Image direct Link <a href="https://postimages.org/" style="color: orange;" target="_blank">Open Upload Site</a>'))
                     ->required()
+                    ->maxLength(255),
 //                FileUpload::make('landsExcel')->dehydrated(false)
 
             ]);

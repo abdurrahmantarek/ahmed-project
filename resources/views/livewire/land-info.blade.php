@@ -14,6 +14,7 @@
                                 <option value="{{ $gov }}">{{ $gov }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار المحافظة</div>
                     </div>
                 </div>
                 <div class="col-6">
@@ -26,6 +27,7 @@
                                 <option value="{{ $city }}">{{ $city }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار المدينة</div>
                     </div>
                 </div>
             </div>
@@ -40,6 +42,7 @@
                                 <option value="{{ $region }}">{{ $region }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار المنطقة</div>
                     </div>
 
                 </div>
@@ -52,6 +55,7 @@
                                 <option value="{{ $district }}">{{ $district }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار الحي</div>
                     </div>
                 </div>
             </div>
@@ -67,6 +71,7 @@
                                 <option value="{{ $subDistrict }}">{{ $subDistrict }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a;display:none;" data-darkreader-inline-color="">برجاء اختيار المجاورة</div>
                     </div>
 
                 </div>
@@ -74,12 +79,13 @@
 
                     <div class="form-group mt-3">
                         <label for="landNo">رقم القطعة *</label>
-                        <select  wire:model="land" name="landNo" class="form-control" id="landNo">
+                        <select  wire:model="land" name="landNo" class="form-control" id="landNo" >
                             <option value="" selected>برجاء الاختيار</option>
                             @foreach($lands AS $land)
                                 <option value="{{ $land }}">{{ $land }}</option>
                             @endforeach
                         </select>
+                        <div style="color: red; --darkreader-inline-color:#ff1a1a; display:none;" data-darkreader-inline-color="">برجاء اختيار قطعة الارض</div>
                     </div>
 
                 </div>
@@ -118,8 +124,33 @@
     </section>
 
     <div class="text-center">
-        <a href="{{ $area ? route('step3') : '#' }}" class="btn green-bg white nextbtn btn-primary" >تاكيد </a>
+
+        <button onclick="checkSelect()" style="margin-bottom: 110px;margin-top: 20px;cursor: pointer;padding: 6px 25px;" class="btn green-bg white nextbtn btn-primary">تاكيد</button>
+        <!-- <a href="{{ $area ? route('step3') : 'JavaScript:void(0);' }}" class="btn green-bg white nextbtn" >تاكيد </a> -->
         <a href="{{ route('step1') }}" class="btn green-bg white nextbtn mr-3">رجوع للتعديل</a>
     </div>
 
 </div>
+
+<script>
+    function checkSelect() {
+
+        let selectIdAr = ["governorates","cities","regions","districts","subDistricts","landNo"]
+        for (let i = 0; i < selectIdAr.length; i++) {
+            let selectElement = document.getElementById(selectIdAr[i]);
+            let selectedValue = selectElement.options[0].selected;
+            if (selectedValue) {
+                selectElement.nextElementSibling.style.color = "red";
+                selectElement.nextElementSibling.style.display = "block";
+            } else {
+                selectElement.nextElementSibling.style.color = "red";
+                selectElement.nextElementSibling.style.display = "none";
+            }
+        }
+        let LastSelect = document.getElementById("landNo");
+        let selectedValue = LastSelect.options[0].selected;
+        if(!selectedValue){
+            window.location.href = "{{ route('step3') }}"
+        }
+    }
+</script>

@@ -116,7 +116,7 @@ class SiteController extends Controller
 
     public function home()
     {
-        $projects = Project::get();
+        $projects = Project::orderBy('sorting_date', 'asc')->get();
 
         return view('site.home', compact('projects'));
     }

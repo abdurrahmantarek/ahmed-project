@@ -37,6 +37,9 @@
                     </div>
                     <div class="col-md-5 col-sm-5 pl-0">
 
+                        @php
+                            \Carbon\Carbon::setLocale('ar');
+                        @endphp
                         <div class="details">
                             <h2>تفاصيل المشروع</h2>
                             <div class="row">
@@ -48,7 +51,7 @@
                                         <span>تاريخ فتح التقدم:</span>
                                     </div>
                                     <div class="value col-5">
-                                        04 ديسمبر 2022
+                                        {{ \Carbon\Carbon::parse($project->open_date)->translatedFormat('d M Y') }}
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-between">
@@ -59,7 +62,7 @@
                                         <span>تاريخ آخر موعد لاستخراج رقم الإستمارة وسداد جدية الحجز :</span>
                                     </div>
                                     <div class="value col-5">
-                                        15 ديسمبر 2022
+                                        {{ \Carbon\Carbon::parse($project->last_date_for_filling_the_form)->translatedFormat('d M Y') }}
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-between">
@@ -70,7 +73,8 @@
                                         <span>تاريخ بداية حجز الاراضى :</span>
                                     </div>
                                     <div class="value col-5">
-                                        25 ديسمبر 2022 10:00 ص
+                                        {{ \Carbon\Carbon::parse($project->close_date)->translatedFormat('d M Y') }}
+                                        10:00 ص
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-between">
@@ -81,7 +85,7 @@
                                         <span>تاريخ نهاية حجز الاراضى :</span>
                                     </div>
                                     <div class="value col-5">
-                                        25 ديسمبر 2022
+                                        {{ \Carbon\Carbon::parse($project->open_registration_date)->translatedFormat('d M Y') }}
                                     </div>
                                 </div>
                                 @if(session()->get('project')->type === 'lands')
@@ -93,7 +97,19 @@
                                             <span>الأراضي المتاحة الآن:</span>
                                         </div>
                                         <div class="value col-5">
-                                            709
+                                            {{ $project->available_lands }}
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <div class="title col-7 d-flex">
+                                            <span class="icon">
+                                                <img src="{{ asset('assets/img/hourglass.svg') }}"  alt="">
+                                            </span>
+                                            <span>الوحدات المتاحة الآن:</span>
+                                        </div>
+                                        <div class="value col-5">
+                                            {{ $project->available_lands }}
                                         </div>
                                     </div>
                                 @endif
@@ -116,32 +132,23 @@
                     </div>
                 </div>
                 <div class="row m-0">
-                    <div class="cond">
+                    <div class="cond w-100">
                         <h3>الشروط والأحكام</h3>
-                        <p>
-                            1. يقر المتقدم للحجز باطلاعه على كراسة الشروط وعلمه بكل ما جاء بها
-                            وقبوله لكافة الاشتراطات الموجودة بها.
-                        </p>
-                        <p>
-                            2. يقر المتقدم للحجز باطلاعه على الشروط والاحكام الخاصة بالحجز
-                            الإلكتروني وعلمه وقبوله لها.
-                        </p>
-                        <p>
-                            3. يقر المتقدم للحجز بمسئولياته الكاملة على الحفاظ على اسم المستخدم
-                            وكلمة السر الخاصة به على الموقع الالكتروني. وكذلك مسئولياته الكاملة
-                            على كافة الاحداث التي تتم من خلال اسم المستخدم الممنوح له.
-                        </p>
-                        <p>
-                            4. تعديل بيانات حجز الأراضي مسموح به اثناء الادخال فقط قبل ارسال طلب
-                            التسجيل.
-                        </p>
+
+                        @forelse(explode("\n", $project->policy) AS $description)
+                            <p>
+                                {{ $description }}
+                            </p>
+                        @empty
+                        @endforelse
                     </div>
                     <div class="cond w-100">
                         <h3 style="color: #ff4848">تنويه</h3>
                         <p class="mb-4">
+                            {{ $project->warning }}
                         </p>
                     </div>
-                    <img src="{{ asset('assets/img/land-1.jpeg') }}" class="img-fluid mt-3" alt="" />
+                    <img src="{{ $project->warning_image }}" class="img-fluid mt-3" alt="" />
                 </div>
             </div>
         </section>
